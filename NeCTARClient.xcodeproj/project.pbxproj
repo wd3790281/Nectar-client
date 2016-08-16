@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		274FF9491D53078700D588EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FF9481D53078700D588EC /* User.swift */; };
+		274FF94B1D53102A00D588EC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FF94A1D53102A00D588EC /* UserService.swift */; };
+		274FF94D1D5C868200D588EC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274FF94C1D5C868200D588EC /* LoginStoryboard.storyboard */; };
+		274FF9501D5CAA2000D588EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FF94F1D5CAA2000D588EC /* BaseViewController.swift */; };
+		27510BA51D488F290098CD17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27510BA41D488F290098CD17 /* AppDelegate.swift */; };
+		27510BA71D488F290098CD17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27510BA61D488F290098CD17 /* ViewController.swift */; };
+		27510BAA1D488F290098CD17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27510BA81D488F290098CD17 /* Main.storyboard */; };
+		27510BAC1D488F290098CD17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27510BAB1D488F290098CD17 /* Assets.xcassets */; };
+		27510BAF1D488F290098CD17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27510BAD1D488F290098CD17 /* LaunchScreen.storyboard */; };
+		27510BBA1D488F2A0098CD17 /* NeCTARClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27510BB91D488F2A0098CD17 /* NeCTARClientTests.swift */; };
+		27510BC51D488F2A0098CD17 /* NeCTARClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27510BC41D488F2A0098CD17 /* NeCTARClientUITests.swift */; };
+		276BE6281D607DF1003EA74C /* ContentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6271D607DF1003EA74C /* ContentBaseViewController.swift */; };
+		276BE62C1D6080DC003EA74C /* CommonUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62B1D6080DC003EA74C /* CommonUsage.swift */; };
+		276BE62E1D608BF9003EA74C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62D1D608BF9003EA74C /* HomeViewController.swift */; };
+		276BE6301D609FAE003EA74C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62F1D609FAE003EA74C /* LeftViewController.swift */; };
+		276BE6321D60A266003EA74C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6311D60A266003EA74C /* MenuTableViewController.swift */; };
+		27AAFD4F1D5DB246007E3054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AAFD4E1D5DB246007E3054 /* LoginViewController.swift */; };
+		27AEF62F1D49E0F1006A6337 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF62E1D49E0F1006A6337 /* NetworkEngine.swift */; };
+		94C082D7E09E4178CDF4B0FD /* Pods_NeCTARClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160FE1A9B3DFB2E80C6A2874 /* Pods_NeCTARClient.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27510BB61D488F2A0098CD17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27510B991D488F290098CD17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27510BA01D488F290098CD17;
+			remoteInfo = NeCTARClient;
+		};
+		27510BC11D488F2A0098CD17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27510B991D488F290098CD17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27510BA01D488F290098CD17;
+			remoteInfo = NeCTARClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		160FE1A9B3DFB2E80C6A2874 /* Pods_NeCTARClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeCTARClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B5B6132B56EA574C782E008 /* Pods-NeCTARClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeCTARClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeCTARClient/Pods-NeCTARClient.release.xcconfig"; sourceTree = "<group>"; };
+		274FF9481D53078700D588EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		274FF94A1D53102A00D588EC /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		274FF94C1D5C868200D588EC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		274FF94F1D5CAA2000D588EC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		27510BA11D488F290098CD17 /* NeCTARClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeCTARClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27510BA41D488F290098CD17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27510BA61D488F290098CD17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27510BA91D488F290098CD17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27510BAB1D488F290098CD17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27510BAE1D488F290098CD17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27510BB01D488F290098CD17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27510BB51D488F2A0098CD17 /* NeCTARClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeCTARClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27510BB91D488F2A0098CD17 /* NeCTARClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeCTARClientTests.swift; sourceTree = "<group>"; };
+		27510BBB1D488F2A0098CD17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27510BC01D488F2A0098CD17 /* NeCTARClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeCTARClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27510BC41D488F2A0098CD17 /* NeCTARClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeCTARClientUITests.swift; sourceTree = "<group>"; };
+		27510BC61D488F2A0098CD17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276BE6271D607DF1003EA74C /* ContentBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseViewController.swift; sourceTree = "<group>"; };
+		276BE62B1D6080DC003EA74C /* CommonUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUsage.swift; sourceTree = "<group>"; };
+		276BE62D1D608BF9003EA74C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		276BE62F1D609FAE003EA74C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		276BE6311D60A266003EA74C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		27AAFD4E1D5DB246007E3054 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		27AEF62E1D49E0F1006A6337 /* NetworkEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		4D1B065FB0CD8CC0A7A853D8 /* Pods_NeCTARClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeCTARClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BFD802475F6ED318E4023AD /* Pods-NeCTARClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeCTARClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeCTARClient/Pods-NeCTARClient.debug.xcconfig"; sourceTree = "<group>"; };
+		A328051051531B7D06FC049E /* Pods_NeCTARClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeCTARClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27510B9E1D488F290098CD17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94C082D7E09E4178CDF4B0FD /* Pods_NeCTARClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BB21D488F2A0098CD17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BBD1D488F2A0098CD17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F6BDEA84378C9CBE598056C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				160FE1A9B3DFB2E80C6A2874 /* Pods_NeCTARClient.framework */,
+				A328051051531B7D06FC049E /* Pods_NeCTARClientTests.framework */,
+				4D1B065FB0CD8CC0A7A853D8 /* Pods_NeCTARClientUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		274FF9441D4EFC9D00D588EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				274FF94A1D53102A00D588EC /* UserService.swift */,
+				276BE62B1D6080DC003EA74C /* CommonUsage.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		274FF9471D53077300D588EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				274FF9481D53078700D588EC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		274FF94E1D5CA9D100D588EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				274FF94F1D5CAA2000D588EC /* BaseViewController.swift */,
+				276BE6271D607DF1003EA74C /* ContentBaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		27510B981D488F290098CD17 = {
+			isa = PBXGroup;
+			children = (
+				27510BA31D488F290098CD17 /* NeCTARClient */,
+				27510BB81D488F2A0098CD17 /* NeCTARClientTests */,
+				27510BC31D488F2A0098CD17 /* NeCTARClientUITests */,
+				27510BA21D488F290098CD17 /* Products */,
+				B43916E3B813EE306B8984AF /* Pods */,
+				1F6BDEA84378C9CBE598056C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		27510BA21D488F290098CD17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27510BA11D488F290098CD17 /* NeCTARClient.app */,
+				27510BB51D488F2A0098CD17 /* NeCTARClientTests.xctest */,
+				27510BC01D488F2A0098CD17 /* NeCTARClientUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27510BA31D488F290098CD17 /* NeCTARClient */ = {
+			isa = PBXGroup;
+			children = (
+				274FF9471D53077300D588EC /* Models */,
+				274FF9441D4EFC9D00D588EC /* Utils */,
+				27AEF62C1D49E0A3006A6337 /* Network */,
+				27AEF62D1D49E0A3006A6337 /* ViewControllers */,
+				27510BA41D488F290098CD17 /* AppDelegate.swift */,
+				27510BA61D488F290098CD17 /* ViewController.swift */,
+				274FF94C1D5C868200D588EC /* LoginStoryboard.storyboard */,
+				27510BA81D488F290098CD17 /* Main.storyboard */,
+				27510BAB1D488F290098CD17 /* Assets.xcassets */,
+				27510BAD1D488F290098CD17 /* LaunchScreen.storyboard */,
+				27510BB01D488F290098CD17 /* Info.plist */,
+			);
+			path = NeCTARClient;
+			sourceTree = "<group>";
+		};
+		27510BB81D488F2A0098CD17 /* NeCTARClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				27510BB91D488F2A0098CD17 /* NeCTARClientTests.swift */,
+				27510BBB1D488F2A0098CD17 /* Info.plist */,
+			);
+			path = NeCTARClientTests;
+			sourceTree = "<group>";
+		};
+		27510BC31D488F2A0098CD17 /* NeCTARClientUITests */ = {
+			isa = PBXGroup;
+			children = (
+				27510BC41D488F2A0098CD17 /* NeCTARClientUITests.swift */,
+				27510BC61D488F2A0098CD17 /* Info.plist */,
+			);
+			path = NeCTARClientUITests;
+			sourceTree = "<group>";
+		};
+		27AAFD4D1D5DB22A007E3054 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				27AAFD4E1D5DB246007E3054 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		27AEF62C1D49E0A3006A6337 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				27AEF62E1D49E0F1006A6337 /* NetworkEngine.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		27AEF62D1D49E0A3006A6337 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27AAFD4D1D5DB22A007E3054 /* Login */,
+				274FF94E1D5CA9D100D588EC /* Common */,
+				276BE62D1D608BF9003EA74C /* HomeViewController.swift */,
+				276BE62F1D609FAE003EA74C /* LeftViewController.swift */,
+				276BE6311D60A266003EA74C /* MenuTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B43916E3B813EE306B8984AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BFD802475F6ED318E4023AD /* Pods-NeCTARClient.debug.xcconfig */,
+				1B5B6132B56EA574C782E008 /* Pods-NeCTARClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27510BA01D488F290098CD17 /* NeCTARClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27510BC91D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClient" */;
+			buildPhases = (
+				919932922893720AAD759D4E /* [CP] Check Pods Manifest.lock */,
+				27510B9D1D488F290098CD17 /* Sources */,
+				27510B9E1D488F290098CD17 /* Frameworks */,
+				27510B9F1D488F290098CD17 /* Resources */,
+				B603C5D379F58B44F13BC75F /* [CP] Embed Pods Frameworks */,
+				81CA300B473B08BE807FB497 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeCTARClient;
+			productName = NeCTARClient;
+			productReference = 27510BA11D488F290098CD17 /* NeCTARClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27510BB41D488F2A0098CD17 /* NeCTARClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27510BCC1D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClientTests" */;
+			buildPhases = (
+				F46FF07FB6C69D3631A695F3 /* [CP] Check Pods Manifest.lock */,
+				27510BB11D488F2A0098CD17 /* Sources */,
+				27510BB21D488F2A0098CD17 /* Frameworks */,
+				27510BB31D488F2A0098CD17 /* Resources */,
+				3867B55BA4E70037F2AD500A /* [CP] Embed Pods Frameworks */,
+				AEAAFF1C1DF29A6A991272D7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27510BB71D488F2A0098CD17 /* PBXTargetDependency */,
+			);
+			name = NeCTARClientTests;
+			productName = NeCTARClientTests;
+			productReference = 27510BB51D488F2A0098CD17 /* NeCTARClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		27510BBF1D488F2A0098CD17 /* NeCTARClientUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27510BCF1D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClientUITests" */;
+			buildPhases = (
+				F1AB0E1DB84B17B2C2714AC4 /* [CP] Check Pods Manifest.lock */,
+				27510BBC1D488F2A0098CD17 /* Sources */,
+				27510BBD1D488F2A0098CD17 /* Frameworks */,
+				27510BBE1D488F2A0098CD17 /* Resources */,
+				136AC54743BCB2242F5DED47 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27510BC21D488F2A0098CD17 /* PBXTargetDependency */,
+			);
+			name = NeCTARClientUITests;
+			productName = NeCTARClientUITests;
+			productReference = 27510BC01D488F2A0098CD17 /* NeCTARClientUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27510B991D488F290098CD17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Ding Wang";
+				TargetAttributes = {
+					27510BA01D488F290098CD17 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 9CQ32ZPA5Z;
+					};
+					27510BB41D488F2A0098CD17 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 9CQ32ZPA5Z;
+						TestTargetID = 27510BA01D488F290098CD17;
+					};
+					27510BBF1D488F2A0098CD17 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 9CQ32ZPA5Z;
+						TestTargetID = 27510BA01D488F290098CD17;
+					};
+				};
+			};
+			buildConfigurationList = 27510B9C1D488F290098CD17 /* Build configuration list for PBXProject "NeCTARClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27510B981D488F290098CD17;
+			productRefGroup = 27510BA21D488F290098CD17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27510BA01D488F290098CD17 /* NeCTARClient */,
+				27510BB41D488F2A0098CD17 /* NeCTARClientTests */,
+				27510BBF1D488F2A0098CD17 /* NeCTARClientUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27510B9F1D488F290098CD17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27510BAF1D488F290098CD17 /* LaunchScreen.storyboard in Resources */,
+				27510BAC1D488F290098CD17 /* Assets.xcassets in Resources */,
+				27510BAA1D488F290098CD17 /* Main.storyboard in Resources */,
+				274FF94D1D5C868200D588EC /* LoginStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BB31D488F2A0098CD17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BBE1D488F2A0098CD17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		136AC54743BCB2242F5DED47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeCTARClientUITests/Pods-NeCTARClientUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3867B55BA4E70037F2AD500A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeCTARClientTests/Pods-NeCTARClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81CA300B473B08BE807FB497 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeCTARClient/Pods-NeCTARClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		919932922893720AAD759D4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AEAAFF1C1DF29A6A991272D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeCTARClientTests/Pods-NeCTARClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B603C5D379F58B44F13BC75F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeCTARClient/Pods-NeCTARClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1AB0E1DB84B17B2C2714AC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F46FF07FB6C69D3631A695F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27510B9D1D488F290098CD17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27AAFD4F1D5DB246007E3054 /* LoginViewController.swift in Sources */,
+				274FF9491D53078700D588EC /* User.swift in Sources */,
+				276BE62C1D6080DC003EA74C /* CommonUsage.swift in Sources */,
+				274FF94B1D53102A00D588EC /* UserService.swift in Sources */,
+				27510BA71D488F290098CD17 /* ViewController.swift in Sources */,
+				276BE6301D609FAE003EA74C /* LeftViewController.swift in Sources */,
+				276BE62E1D608BF9003EA74C /* HomeViewController.swift in Sources */,
+				27510BA51D488F290098CD17 /* AppDelegate.swift in Sources */,
+				276BE6321D60A266003EA74C /* MenuTableViewController.swift in Sources */,
+				27AEF62F1D49E0F1006A6337 /* NetworkEngine.swift in Sources */,
+				274FF9501D5CAA2000D588EC /* BaseViewController.swift in Sources */,
+				276BE6281D607DF1003EA74C /* ContentBaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BB11D488F2A0098CD17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27510BBA1D488F2A0098CD17 /* NeCTARClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27510BBC1D488F2A0098CD17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27510BC51D488F2A0098CD17 /* NeCTARClientUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27510BB71D488F2A0098CD17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27510BA01D488F290098CD17 /* NeCTARClient */;
+			targetProxy = 27510BB61D488F2A0098CD17 /* PBXContainerItemProxy */;
+		};
+		27510BC21D488F2A0098CD17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27510BA01D488F290098CD17 /* NeCTARClient */;
+			targetProxy = 27510BC11D488F2A0098CD17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27510BA81D488F290098CD17 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27510BA91D488F290098CD17 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27510BAD1D488F290098CD17 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27510BAE1D488F290098CD17 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27510BC71D488F2A0098CD17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27510BC81D488F2A0098CD17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27510BCA1D488F2A0098CD17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BFD802475F6ED318E4023AD /* Pods-NeCTARClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NeCTARClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		27510BCB1D488F2A0098CD17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B5B6132B56EA574C782E008 /* Pods-NeCTARClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NeCTARClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		27510BCD1D488F2A0098CD17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NeCTARClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeCTARClient.app/NeCTARClient";
+			};
+			name = Debug;
+		};
+		27510BCE1D488F2A0098CD17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NeCTARClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeCTARClient.app/NeCTARClient";
+			};
+			name = Release;
+		};
+		27510BD01D488F2A0098CD17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NeCTARClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NeCTARClient;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		27510BD11D488F2A0098CD17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NeCTARClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.dingw.NeCTARClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NeCTARClient;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27510B9C1D488F290098CD17 /* Build configuration list for PBXProject "NeCTARClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27510BC71D488F2A0098CD17 /* Debug */,
+				27510BC81D488F2A0098CD17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27510BC91D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27510BCA1D488F2A0098CD17 /* Debug */,
+				27510BCB1D488F2A0098CD17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27510BCC1D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27510BCD1D488F2A0098CD17 /* Debug */,
+				27510BCE1D488F2A0098CD17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27510BCF1D488F2A0098CD17 /* Build configuration list for PBXNativeTarget "NeCTARClientUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27510BD01D488F2A0098CD17 /* Debug */,
+				27510BD11D488F2A0098CD17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27510B991D488F290098CD17 /* Project object */;
+}
