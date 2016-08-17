@@ -15,6 +15,9 @@ class LeftViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var userName: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    let menu = ["Overview", "Instances", "Volumes", "Images", "Access & Security"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,18 +43,17 @@ class LeftViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        switch indexPath.row {
-        case 1:
-            cell.textLabel?.text = "Instances"
-        case 2:
-            cell.textLabel?.text = "Volumes"
-        case 3:
-            cell.textLabel?.text = "Images"
-        case 4:
-            cell.textLabel?.text = "Access & Security"
-        default:
-            cell.textLabel?.text = "Overview"
+        cell.textLabel?.text = menu[indexPath.row]
+               return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let viewController = Common.rootViewController
+        if ( indexPath.row != 0){
+            viewController.homeViewController.titleOfOtherPages = menu[indexPath.row]
+            viewController.homeViewController.performSegueWithIdentifier("showOtherPages", sender: self)
         }
-        return cell
+        viewController.showHome()
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }

@@ -11,4 +11,14 @@ import UIKit
 class HomeViewController: BaseViewController {
     @IBOutlet var panGesture: UIPanGestureRecognizer!
 
+    var titleOfOtherPages = ""
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showOtherPages" {
+            if let a = segue.destinationViewController as? OtherPageViewController {
+                a.PageTitle = titleOfOtherPages
+            }
+        }
+    }
 }

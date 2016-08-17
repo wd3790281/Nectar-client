@@ -341,7 +341,7 @@ extension NeCTAREngine {
     }
 }
 
-// MARK: - keypairs
+// MARK: - snapshot
 
 extension NeCTAREngine{
     func createVolumeSnapshot(volumeId: String, snapshotId: String, url: String,

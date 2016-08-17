@@ -22,7 +22,11 @@
 		276BE62C1D6080DC003EA74C /* CommonUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62B1D6080DC003EA74C /* CommonUsage.swift */; };
 		276BE62E1D608BF9003EA74C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62D1D608BF9003EA74C /* HomeViewController.swift */; };
 		276BE6301D609FAE003EA74C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE62F1D609FAE003EA74C /* LeftViewController.swift */; };
-		276BE6321D60A266003EA74C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6311D60A266003EA74C /* MenuTableViewController.swift */; };
+		276BE6431D62CA49003EA74C /* OtherPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6421D62CA48003EA74C /* OtherPageViewController.swift */; };
+		276BE6451D63438A003EA74C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6441D63438A003EA74C /* ImageViewController.swift */; };
+		276BE6471D6343A8003EA74C /* InstancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6461D6343A8003EA74C /* InstancesViewController.swift */; };
+		276BE6491D6343C4003EA74C /* VolumesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE6481D6343C4003EA74C /* VolumesViewController.swift */; };
+		276BE64B1D6343D7003EA74C /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BE64A1D6343D7003EA74C /* SecurityViewController.swift */; };
 		27AAFD4F1D5DB246007E3054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AAFD4E1D5DB246007E3054 /* LoginViewController.swift */; };
 		27AEF62F1D49E0F1006A6337 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF62E1D49E0F1006A6337 /* NetworkEngine.swift */; };
 		94C082D7E09E4178CDF4B0FD /* Pods_NeCTARClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160FE1A9B3DFB2E80C6A2874 /* Pods_NeCTARClient.framework */; };
@@ -69,7 +73,11 @@
 		276BE62B1D6080DC003EA74C /* CommonUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUsage.swift; sourceTree = "<group>"; };
 		276BE62D1D608BF9003EA74C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		276BE62F1D609FAE003EA74C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		276BE6311D60A266003EA74C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		276BE6421D62CA48003EA74C /* OtherPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPageViewController.swift; sourceTree = "<group>"; };
+		276BE6441D63438A003EA74C /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		276BE6461D6343A8003EA74C /* InstancesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstancesViewController.swift; sourceTree = "<group>"; };
+		276BE6481D6343C4003EA74C /* VolumesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumesViewController.swift; sourceTree = "<group>"; };
+		276BE64A1D6343D7003EA74C /* SecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
 		27AAFD4E1D5DB246007E3054 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AEF62E1D49E0F1006A6337 /* NetworkEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		4D1B065FB0CD8CC0A7A853D8 /* Pods_NeCTARClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeCTARClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +228,11 @@
 				274FF94E1D5CA9D100D588EC /* Common */,
 				276BE62D1D608BF9003EA74C /* HomeViewController.swift */,
 				276BE62F1D609FAE003EA74C /* LeftViewController.swift */,
-				276BE6311D60A266003EA74C /* MenuTableViewController.swift */,
+				276BE6421D62CA48003EA74C /* OtherPageViewController.swift */,
+				276BE6441D63438A003EA74C /* ImageViewController.swift */,
+				276BE6461D6343A8003EA74C /* InstancesViewController.swift */,
+				276BE6481D6343C4003EA74C /* VolumesViewController.swift */,
+				276BE64A1D6343D7003EA74C /* SecurityViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -500,16 +512,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276BE6491D6343C4003EA74C /* VolumesViewController.swift in Sources */,
 				27AAFD4F1D5DB246007E3054 /* LoginViewController.swift in Sources */,
 				274FF9491D53078700D588EC /* User.swift in Sources */,
+				276BE6431D62CA49003EA74C /* OtherPageViewController.swift in Sources */,
 				276BE62C1D6080DC003EA74C /* CommonUsage.swift in Sources */,
 				274FF94B1D53102A00D588EC /* UserService.swift in Sources */,
 				27510BA71D488F290098CD17 /* ViewController.swift in Sources */,
 				276BE6301D609FAE003EA74C /* LeftViewController.swift in Sources */,
 				276BE62E1D608BF9003EA74C /* HomeViewController.swift in Sources */,
 				27510BA51D488F290098CD17 /* AppDelegate.swift in Sources */,
-				276BE6321D60A266003EA74C /* MenuTableViewController.swift in Sources */,
+				276BE6451D63438A003EA74C /* ImageViewController.swift in Sources */,
+				276BE6471D6343A8003EA74C /* InstancesViewController.swift in Sources */,
 				27AEF62F1D49E0F1006A6337 /* NetworkEngine.swift in Sources */,
+				276BE64B1D6343D7003EA74C /* SecurityViewController.swift in Sources */,
 				274FF9501D5CAA2000D588EC /* BaseViewController.swift in Sources */,
 				276BE6281D607DF1003EA74C /* ContentBaseViewController.swift in Sources */,
 			);

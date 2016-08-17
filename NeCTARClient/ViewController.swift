@@ -25,12 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 给主视图设置背景
+        // add background image to mainview
         let imageView = UIImageView(image: UIImage(named: "background"))
         imageView.frame = UIScreen.mainScreen().bounds
         self.view.addSubview(imageView)
         
-        // 添加左视图，在背景之上，主视图之下
+        // add left view controller, above background, under main view
         leftViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
 
         leftViewController.view.center = CGPointMake(leftViewController.view.center.x - Common.screenWidth * Proportion, leftViewController.view.center.y)
@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         mainView = UIView(frame: self.view.frame)
         homeNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         homeViewController = homeNavigationController.viewControllers.first as! HomeViewController
+        homeViewController.navigationItem.leftBarButtonItem?.action = #selector(ViewController.showLeft)
         mainView.addSubview(homeViewController.navigationController!.view)
         mainView.addSubview(homeViewController.view)
         self.view.addSubview(mainView)
@@ -60,13 +61,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // 响应 UIPanGestureRecognizer 事件
+    
     func pan(recongnizer: UIPanGestureRecognizer) {
         let x = recongnizer.translationInView(self.view).x
-        let trueDistance = distance + x // 实时距离
+        let trueDistance = distance + x // realtime distance
 
         
-        // 如果 UIPanGestureRecognizer 结束，则激活自动停靠
+        // if UIPanGestureRecognizer end, move to certain position automatically
         if recongnizer.state == UIGestureRecognizerState.Ended {
             
             if trueDistance > Common.screenWidth * (Proportion / 3) {
@@ -78,12 +79,13 @@ class ViewController: UIViewController {
             return
         }
         
-        // 到达指定地点则停止动画
+        // when reach to certain point, stop aotumactically
+
         if (trueDistance >= Proportion * Common.screenWidth || trueDistance <= 0){
             return
         }
 
-        // 执行平移动画
+        // move animate
         if(recongnizer.view!.frame.origin.x >= 0){
             recongnizer.view!.center = CGPointMake(self.view.center.x + trueDistance, self.view.center.y)
 
@@ -95,13 +97,13 @@ class ViewController: UIViewController {
     
     // show left view
     func showLeft() {
-        self.view.addGestureRecognizer(tapGesture)
+        self.mainView.addGestureRecognizer(tapGesture)
         distance = Proportion * Common.screenWidth
         doTheAnimate()
     }
     // show home view
     func showHome() {
-        self.view.removeGestureRecognizer(tapGesture)
+        self.mainView.removeGestureRecognizer(tapGesture)
         distance = 0
         doTheAnimate()
     }

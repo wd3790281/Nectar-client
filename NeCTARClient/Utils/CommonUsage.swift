@@ -13,4 +13,5 @@ import UIKit
 struct Common {
     static let screenWidth = UIScreen.mainScreen().applicationFrame.maxX
     static let screenHeight = UIScreen.mainScreen().applicationFrame.maxY
+    static let rootViewController = UIApplication.sharedApplication().keyWindow?.rootViewController as! ViewController
 }
