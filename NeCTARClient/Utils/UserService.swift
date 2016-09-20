@@ -33,7 +33,6 @@ class UserService {
     
     var user: User?
     
-    
     func logout() {
         self.user = nil
     }
@@ -47,7 +46,6 @@ class UserService {
         self.user = user
     }
 
-    
     var isLoggedIn:Bool {
         get {
             return (user != nil)

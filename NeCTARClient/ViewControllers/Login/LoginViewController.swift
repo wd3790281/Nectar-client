@@ -94,12 +94,15 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     @IBAction func loginAction(sender: UIButton) {
         guard let tenantName = self.tenantName.text where !tenantName.isEmpty else{
+            PromptErrorMessage("Tenant name cannot be empty", viewController: self)
             return
         }
         guard let username = self.username.text where !username.isEmpty else {
+            PromptErrorMessage("Username cannot be empty", viewController: self)
             return
         }
         guard let password = self.password.text where !password.isEmpty else {
+            PromptErrorMessage("Password cannot be empty", viewController: self)
             return
         }
         self.indicator.startAnimating()
@@ -108,13 +111,23 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             (json) -> Void in
 //            UserService.sharedService.user = User(json: json)
             self.postLoginAction?(json)
-            print(UserService.sharedService.user?.computeServiceURL)
-            print(UserService.sharedService.user?.username)
+//            print(UserService.sharedService.user?.computeServiceURL)
+//            print(UserService.sharedService.user?.username)
             
             }.always{
                 self.indicator.stopAnimating()
                 self.login.userInteractionEnabled = true
+            }.error{(err) -> Void in
+                var errorMessage:String!
+                switch err {
+                case NeCTAREngineError.CommonError(let msg):
+                    errorMessage = msg
+                default:
+                    errorMessage = "An error occured"
+                }
+                PromptErrorMessage(errorMessage, viewController: self)
         }
+
     }
 
     @IBAction func passwordVisible(sender: UIButton) {

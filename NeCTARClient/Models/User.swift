@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 struct User {
-    var toeknID: String
+    var tokenID: String
     var tenantID: Int
     var tenantDescription: String
     var tenantName: String
@@ -34,7 +34,7 @@ struct User {
         let serviceCatalog = accessInfo["serviceCatalog"].arrayValue
         let userInfo = accessInfo["user"]
         
-        self.toeknID = token["id"].stringValue
+        self.tokenID = token["id"].stringValue
         self.tenantName = token["tenant"]["name"].stringValue
         self.tenantID = token["tenant"]["id"].intValue
         self.tenantDescription = token["tenant"]["description"].stringValue

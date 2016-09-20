@@ -47,8 +47,6 @@ class NeCTAREngine {
         if let parameters = parameters {
             _params = parameters
           
-        } else {
-            _params = ["source":"iPhone"]
         }
         
         return Promise() { fulfill, reject in
@@ -71,7 +69,6 @@ class NeCTAREngine {
                     if let data = data {
                         let json = JSON(data: data)
                         fulfill(json)
-//                        print(json)
                     }
             }
         }
@@ -118,7 +115,7 @@ extension NeCTAREngine {
     func listInstances(url:String, token: String) -> Promise<JSON> {
         let fullURL = url + "/servers/detail"
         let header = ["X-Auth-Token": token]
-        return doHttpRequest(.POST, fullURL, parameters: nil, encoding: .URL, headers: header)
+        return doHttpRequest(.GET, fullURL, parameters: nil, encoding: .URL, headers: header)
     }
     
     func createInstance(url: String, name: String, flavor: String,

@@ -31,7 +31,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            encoding: .JSON).then{(json) -> Void in
 //                UserService.sharedService.user = User(json: json)
 //                print(json)}
+        
+        if !UserService.sharedService.isLoggedIn {
+            let loginVC = UIStoryboard(name: "LoginStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+            let navLoginVC = UINavigationController(rootViewController: loginVC)
+            navLoginVC.setNavigationBarHidden(true, animated: false)
+            loginVC.postLoginAction = { userJSON in
+                UserService.sharedService.handleLoginResponse(userJSON)
+                self.gotoMainVC()
+            }
+            self.window?.rootViewController = navLoginVC
+            
+        }
+
         return true
+    }
+    
+    func gotoMainVC() {
+        let entryPointOfMain = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window?.rootViewController = entryPointOfMain
+    }
+    
+    func gotoLoginVC() {
+        let loginVC = UIStoryboard(name: "LoginStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        let navLoginVC = UINavigationController(rootViewController: loginVC)
+        navLoginVC.setNavigationBarHidden(true, animated: false)
+        loginVC.postLoginAction = { userJSON in
+            UserService.sharedService.handleLoginResponse(userJSON)
+            self.gotoMainVC()
+        }
+
+        self.window?.rootViewController = navLoginVC
     }
 
     func applicationWillResignActive(application: UIApplication) {

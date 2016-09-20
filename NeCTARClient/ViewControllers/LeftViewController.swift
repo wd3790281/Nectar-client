@@ -48,7 +48,7 @@ class LeftViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let viewController = Common.rootViewController
+        let viewController = UIApplication.sharedApplication().keyWindow?.rootViewController as! ViewController
         if ( indexPath.row != 0){
             viewController.homeViewController.titleOfOtherPages = menu[indexPath.row]
             viewController.homeViewController.performSegueWithIdentifier("showOtherPages", sender: self)

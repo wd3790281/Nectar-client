@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="0Cd-Sg-UZR">
             <objects>
-                <viewController id="Ucr-Ce-Hc2" customClass="LoginViewController" customModule="NeCTARClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="Ucr-Ce-Hc2" customClass="LoginViewController" customModule="NeCTARClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b5e-4P-0Aj"/>
                         <viewControllerLayoutGuide type="bottom" id="7of-re-Dvj"/>

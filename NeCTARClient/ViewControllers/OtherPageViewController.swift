@@ -34,13 +34,15 @@ class OtherPageViewController: BaseViewController {
             securityVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SecurityViewController") as! SecurityViewController
             self.view.addSubview(securityVC.view)
         default:
-            let viewController = Common.rootViewController
+            let viewController = UIApplication.sharedApplication().keyWindow?.rootViewController as! ViewController
             viewController.showHome()
         }
         
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(OtherPageViewController.goBack))
         self.view.addGestureRecognizer(gesture)
     }
+    
+    
     
     func goBack() {
         self.navigationController?.popViewControllerAnimated(true)

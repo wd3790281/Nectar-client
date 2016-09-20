@@ -110,13 +110,19 @@ public class AnimatableModalViewController: UIViewController, PresentationDesign
     }
   }
 
+  @IBInspectable public var keyboardTranslation: String? {
+    didSet {
+      presenter?.presentationConfiguration?.keyboardTranslation = ModalKeyboardTranslation.fromString(keyboardTranslation)
+    }
+  }
+
   // MARK: Private
 
   private var presenter: PresentationPresenter?
 
   // MARK: Life cycle
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+  public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     setupPresenter()
   }
@@ -143,7 +149,7 @@ public class AnimatableModalViewController: UIViewController, PresentationDesign
 
 private extension AnimatableModalViewController {
   func setupPresenter() {
-    // If not set, use the system default tranistion `.CoverVertical` which maps to `.Cover(fromDirection: .Bottom)`
+    // If not set, use the system default transition `.CoverVertical` which maps to `.Cover(fromDirection: .Bottom)`
     let animationType = PresentationAnimationType.fromString(presentationAnimationType ?? "") ?? .Cover(fromDirection: .Bottom)
     presenter = PresentationPresenterManager.sharedManager().retrievePresenter(animationType, transitionDuration: transitionDuration)
     presenter?.dismissalAnimationType = PresentationAnimationType.fromString(dismissalAnimationType ?? "")
@@ -166,6 +172,7 @@ private extension AnimatableModalViewController {
     presentationConfiguration.shadowOpacity = shadowOpacity
     presentationConfiguration.shadowRadius = shadowRadius
     presentationConfiguration.shadowOffset = shadowOffset
+    presentationConfiguration.keyboardTranslation = ModalKeyboardTranslation.fromString(keyboardTranslation)
     presenter?.presentationConfiguration = presentationConfiguration
   }
 }

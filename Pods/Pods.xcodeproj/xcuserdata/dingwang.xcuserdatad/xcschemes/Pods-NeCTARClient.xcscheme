@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95C6F4B9B4134071A403D3757E0D3D6F"
+               BlueprintIdentifier = "A99BBCDFDCDB52F9A86AC661B04AD090"
                BuildableName = "Pods_NeCTARClient.framework"
                BlueprintName = "Pods-NeCTARClient"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95C6F4B9B4134071A403D3757E0D3D6F"
+            BlueprintIdentifier = "A99BBCDFDCDB52F9A86AC661B04AD090"
             BuildableName = "Pods_NeCTARClient.framework"
             BlueprintName = "Pods-NeCTARClient"
             ReferencedContainer = "container:Pods.xcodeproj">
