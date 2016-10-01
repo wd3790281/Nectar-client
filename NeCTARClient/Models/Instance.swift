@@ -33,7 +33,7 @@ struct Instance {
         }
         createTime = json["created"].stringValue
         flavorID = json["flavor"]["id"].stringValue
-        flavorRel = json["flavor"]["links"][0]["rel"].stringValue
+        flavorRel = json["flavor"]["links"][0]["href"].stringValue
         hostId = json["hostId"].stringValue
         id = json["id"].stringValue
         imageId = json["image"]["id"].stringValue

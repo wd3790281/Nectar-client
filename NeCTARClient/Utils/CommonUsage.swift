@@ -13,6 +13,7 @@ import UIKit
 struct Common {
     static let screenWidth = UIScreen.mainScreen().applicationFrame.maxX
     static let screenHeight = UIScreen.mainScreen().applicationFrame.maxY
+    
 //    static let rootViewController = UIApplication.sharedApplication().keyWindow?.rootViewController as! ViewController
 }
 
@@ -22,4 +23,25 @@ func PromptErrorMessage(msg:String, viewController:UIViewController, callback:((
         callback?(action)
     }))
     viewController.presentViewController(alert, animated: true, completion: nil)
+}
+
+func imageWithCaptureView(view: UIView) -> UIImage {
+    
+    let size = CGSizeMake(view.bounds.size.width, view.bounds.size.height)
+    
+    // open bitmap context
+    UIGraphicsBeginImageContextWithOptions(size, false, 0)
+    
+    // get context
+    let ctx = UIGraphicsGetCurrentContext()
+    
+    // render the layer to context
+    view.layer.renderInContext(ctx!)
+    
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    
+    // close context
+    UIGraphicsEndImageContext()
+    
+    return image
 }

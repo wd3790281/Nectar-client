@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var homeViewController: HomeViewController!
+    var homeViewController: OverViewController!
     var leftViewController: LeftViewController!
     var homeNavigationController: UINavigationController!
     
@@ -34,19 +34,20 @@ class ViewController: UIViewController {
         leftViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
 
         leftViewController.view.center = CGPointMake(leftViewController.view.center.x - Common.screenWidth * Proportion, leftViewController.view.center.y)
-
-//        leftViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)
         
         centerOfLeftViewBeginning = leftViewController.view.center
+        self.addChildViewController(leftViewController)
         self.view.addSubview(leftViewController.view)
+        leftViewController.didMoveToParentViewController(self)
         
         mainView = UIView(frame: self.view.frame)
         homeNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
-        homeViewController = homeNavigationController.viewControllers.first as! HomeViewController
+        homeViewController = homeNavigationController.viewControllers.first as! OverViewController
         homeViewController.navigationItem.leftBarButtonItem?.action = #selector(ViewController.showLeft)
         mainView.addSubview(homeViewController.navigationController!.view)
-        mainView.addSubview(homeViewController.view)
+        self.addChildViewController(homeNavigationController)
         self.view.addSubview(mainView)
+        homeNavigationController.didMoveToParentViewController(self)
         
         // 绑定 UIPanGestureRecognizer
         let panGesture = homeViewController.panGesture
@@ -54,6 +55,7 @@ class ViewController: UIViewController {
         mainView.addGestureRecognizer(panGesture)
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.showHome))
+        mainView.addGestureRecognizer(tapGesture)
     }
     
     override func didReceiveMemoryWarning() {

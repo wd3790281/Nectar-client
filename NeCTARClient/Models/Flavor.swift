@@ -15,6 +15,7 @@ struct Flavor {
     var name: String
     var ram: Int
     var vcpus: Int
+    var herf: String
     
     init?(json: JSON) {
         id = json["id"].intValue
@@ -22,5 +23,7 @@ struct Flavor {
         name = json["name"].stringValue
         ram = json["ram"].intValue
         vcpus = json["vcpus"].intValue
+        let links = json["links"].arrayValue
+        herf = links[1]["href"].stringValue
     }
 }

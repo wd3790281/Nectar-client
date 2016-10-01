@@ -11,6 +11,7 @@ import UIKit
 class InstancesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableview: UITableView!
+    var refreshControl: UIRefreshControl!
     
     func commonInit() {
         if let user = UserService.sharedService.user{
@@ -18,29 +19,50 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
             let token = user.tokenID
             NeCTAREngine.sharedEngine.listInstances(url, token: token).then{ (json) -> Void in
                 let servers = json["servers"].arrayValue
-                Instances.sharedService.clear();
+                InstanceService.sharedService.clear();
                 for server in servers {
                     let instance = Instance(json: server)
-                    Instances.sharedService.instances.append(instance!)
+                    InstanceService.sharedService.instances.append(instance!)
                     self.tableview.reloadData()
                     print(json)
+                    self.refreshControl.endRefreshing()
                 }
+                }.error{(err) -> Void in
+                    var errorMessage:String!
+                    switch err {
+                    case NeCTAREngineError.CommonError(let msg):
+                        errorMessage = msg
+                    default:
+                        errorMessage = "Fail to get all instances."
+                    }
+                    PromptErrorMessage(errorMessage, viewController: self)
             }
+
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(InstancesViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableview.addSubview(refreshControl)
+        commonInit()
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
         commonInit()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Instances.sharedService.instances.count
+        return InstanceService.sharedService.instances.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if Instances.sharedService.instances.count != 0 {
+        if InstanceService.sharedService.instances.count != 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("InstanceDetail") as! InstanceDetailCell
             cell.setContent(indexPath.row)
             return cell
@@ -54,7 +76,8 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
             let cell = sender as! InstanceDetailCell
             let path = self.tableview.indexPathForCell(cell)
             let detailVC = segue.destinationViewController as! InstanceDetailViewController
-            detailVC.instance = Instances.sharedService.instances[(path?.row)!]
+            detailVC.instance = InstanceService.sharedService.instances[(path?.row)!]
+            detailVC.index = path?.row
             
         }
     }

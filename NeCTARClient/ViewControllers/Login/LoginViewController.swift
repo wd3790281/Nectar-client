@@ -111,6 +111,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             (json) -> Void in
 //            UserService.sharedService.user = User(json: json)
             self.postLoginAction?(json)
+//            print(json)
 //            print(UserService.sharedService.user?.computeServiceURL)
 //            print(UserService.sharedService.user?.username)
             
@@ -123,7 +124,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 case NeCTAREngineError.CommonError(let msg):
                     errorMessage = msg
                 default:
-                    errorMessage = "An error occured"
+                    errorMessage = "User information is incorrect."
                 }
                 PromptErrorMessage(errorMessage, viewController: self)
         }

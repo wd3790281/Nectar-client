@@ -62,7 +62,7 @@ class NeCTAREngine {
                         reject(NeCTAREngineError.NSErrorWrapped(err))
                         return
                     }
-                    if let resp = resp where resp.statusCode < 200 && resp.statusCode >= 300 {
+                    if let resp = resp where resp.statusCode < 200 || resp.statusCode >= 300 {
                         reject(NeCTAREngineError.ErrorStatusCode(resp.statusCode))
                         return
                     }
@@ -359,6 +359,20 @@ extension NeCTAREngine{
     }
 }
 
+// MARK: - Images 
+
+extension NeCTAREngine {
+    func listImages(url:String, token: String) -> Promise<JSON> {
+        
+        let header = ["X-Auth-Token": token]
+        return doHttpRequest(.GET, url, parameters: nil, encoding: .URL, headers: header)
+    }
+//    func listInstances(url:String, token: String) -> Promise<JSON> {
+//        let fullURL = url + "/servers/detail"
+//        let header = ["X-Auth-Token": token]
+//        return doHttpRequest(.GET, fullURL, parameters: nil, encoding: .URL, headers: header)
+//    }
+}
 
 
 extension NeCTAREngine {
@@ -385,5 +399,7 @@ extension NeCTAREngine {
         return doHttpRequest(.DELETE, fullURL, parameters: ["security_group_id": securityGroupID], encoding: .JSON, headers: header)
     }
 }
+
+
 
 

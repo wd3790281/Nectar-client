@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Instances {
-    static let sharedService = Instances()
+class InstanceService {
+    static let sharedService = InstanceService()
     
     var instances: [Instance] = []
     

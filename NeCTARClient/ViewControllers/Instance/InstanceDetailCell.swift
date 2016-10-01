@@ -19,12 +19,12 @@ class InstanceDetailCell: UITableViewCell {
     @IBOutlet var createTime: UILabel!
     
     func setContent(index: Int) {
-        let instance = Instances.sharedService.instances[index]
+        let instance = InstanceService.sharedService.instances[index]
         instanceName.text = instance.name
         imageName.text = instance.imageRel
         ipAddress.text = instance.ip4Address
         keypair.text = instance.keyName
-        size.text = instance.flavorRel
+        size.text = FlavorService.sharedService.findFlavors(instance.flavorRel)
         status.text = instance.status
         createTime.text = instance.createTime
     }

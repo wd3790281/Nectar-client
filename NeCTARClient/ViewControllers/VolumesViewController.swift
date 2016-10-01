@@ -10,4 +10,7 @@ import UIKit
 
 class VolumesViewController: BaseViewController {
 
+    override func viewDidLoad() {
+        
+    }
 }

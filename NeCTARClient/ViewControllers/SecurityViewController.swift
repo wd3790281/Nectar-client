@@ -10,4 +10,7 @@ import UIKit
 
 class SecurityViewController: BaseViewController {
 
+    override func viewDidLoad() {
+        
+    }
 }

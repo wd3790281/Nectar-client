@@ -9,10 +9,11 @@
 import UIKit
 import Charts
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var panGesture: UIPanGestureRecognizer!
 
     @IBOutlet var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
     var titleOfOtherPages = ""
     let titles = ["Instances", "VCPUs", "RAM", "Security group"]
@@ -22,6 +23,13 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+
+        
         commonInit()
     }
     
@@ -50,9 +58,48 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                 self.data.append([usedSG, unUsedSG])
                 
 //                print(self.data)
+                self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
+                
+                }.error{(err) -> Void in
+                    var errorMessage:String!
+                    switch err {
+                    case NeCTAREngineError.CommonError(let msg):
+                        errorMessage = msg
+                    default:
+                        errorMessage = "Fail to get overview information."
+                    }
+                    PromptErrorMessage(errorMessage, viewController: self)
+            }
+
+            
+            NeCTAREngine.sharedEngine.listFlavors(url, token: token).then{ (json) -> Void in
+//                print(json)
+                let flavors = json["flavors"].arrayValue
+                FlavorService.sharedService.clear();
+                for flavor in flavors {
+                    let fla = Flavor(json: flavor)
+//                    print(fla?.name)
+                    FlavorService.sharedService.falvors.append(fla!)
+                    
+                }
+
+                }.error{(err) -> Void in
+                    var errorMessage:String!
+                    switch err {
+                    case NeCTAREngineError.CommonError(let msg):
+                        errorMessage = msg
+                    default:
+                        errorMessage = "Fail to get all flavors."
+                    }
+                    PromptErrorMessage(errorMessage, viewController: self)
             }
         }
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        commonInit()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
