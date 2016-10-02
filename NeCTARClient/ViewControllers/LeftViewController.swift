@@ -9,51 +9,62 @@
 import UIKit
 import SnapKit
 
-class LeftViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class LeftViewController: BaseViewController {
     
     @IBOutlet var tenantName: UILabel!
     @IBOutlet var userName: UILabel!
-    @IBOutlet var tableView: UITableView!
-    
-    let menu = ["Overview", "Instances", "Volumes", "Images", "Access & Security"]
-    
+
+    @IBOutlet var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.tableView.snp_makeConstraints{ (make) -> Void in
-            make.width.equalTo(Common.screenWidth * 0.8 - 30)
+        self.contentView.snp_makeConstraints{ (make) -> Void in
+            make.width.equalTo(Common.screenWidth * 0.8)
         }
         self.tenantName.snp_makeConstraints{(make) -> Void in
-            make.width.equalTo(Common.screenWidth * 0.8 - 30)
+            make.width.equalTo(Common.screenWidth * 0.8 - 80 )
         }
         self.userName.snp_makeConstraints{(make) -> Void in
-            make.width.equalTo(Common.screenWidth * 0.8 - 30)
+            make.width.equalTo(Common.screenWidth * 0.8 - 80)
         }
+        
+        tenantName.text = UserService.sharedService.user?.tenantName
+        userName.text = UserService.sharedService.user?.username
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    @IBAction func toOverView(sender: AnyObject) {
+        turnToOtherPage("Overview")
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    @IBAction func toInstance(sender: AnyObject) {
+        turnToOtherPage("Instance")
     }
     
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = menu[indexPath.row]
-               return cell
+    @IBAction func toVolume(sender: AnyObject) {
+        turnToOtherPage("Volume")
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    @IBAction func toImage(sender: AnyObject) {
+        turnToOtherPage("Images")
+    }
+    
+    @IBAction func toSecurity(sender: AnyObject) {
+        turnToOtherPage("Access & Security")
+    }
+    
+    @IBAction func logout(sender: AnyObject) {
+        UserService.sharedService.logout()
+        loginRequired ()
+    }
+    
+    func turnToOtherPage (title: String) {
+        
         let viewController = UIApplication.sharedApplication().keyWindow?.rootViewController as! ViewController
-        if ( indexPath.row != 0){
-            viewController.homeViewController.titleOfOtherPages = menu[indexPath.row]
+        viewController.homeViewController.titleOfOtherPages = title
+        if(title != "Overview"){
             viewController.homeViewController.performSegueWithIdentifier("showOtherPages", sender: self)
         }
         viewController.showHome()
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }

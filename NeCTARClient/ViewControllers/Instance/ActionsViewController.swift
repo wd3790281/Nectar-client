@@ -186,11 +186,18 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "PAUSED"
                             self.changeInstanceStatus()
+                        self.postNotification("PAUSED")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
             case "Unpause":
                     NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "unpause", token: user.tokenID).then { (json)
@@ -198,11 +205,18 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
+                        self.postNotification("ACTIVE")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
 
             case "Suspend":
@@ -212,11 +226,18 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "SUSPENDED"
                             self.changeInstanceStatus()
+                        self.postNotification("SUSPENDED")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
             case "Resume":
                     NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "resume", token: user.tokenID).then { (json)
@@ -224,11 +245,18 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
+                        self.postNotification("ACTIVE")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
                 
             case "Stop":
@@ -236,13 +264,20 @@ class ActionsViewController: BaseViewController {
                     NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "stop", token: user.tokenID).then { (json)
                         -> Void in
                             print(json)
-                            self.instance?.status = "SHOTOFF"
+                            self.instance?.status = "SHUTOFF"
                             self.changeInstanceStatus()
+                        self.postNotification("SHUTOFF")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
             case "Start":
                     NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "start", token: user.tokenID).then { (json)
@@ -250,11 +285,18 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
+                        self.postNotification("ACTIVE")
                         }.always{
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            print("error")
-                            print(err)
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            default:
+                                errorMessage = "Action failed."
+                            }
+                            PromptErrorMessage(errorMessage, viewController: self)
                     }
                 
 
@@ -263,10 +305,18 @@ class ActionsViewController: BaseViewController {
                     print (json)
                     self.instance?.status = "ACTIVE"
                     self.changeInstanceStatus()
+                    self.postNotification("ACTIVE")
                     }.always{
                         self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
-                        print (err)
+                        var errorMessage:String!
+                        switch err {
+                        case NeCTAREngineError.CommonError(let msg):
+                            errorMessage = msg
+                        default:
+                            errorMessage = "Action failed."
+                        }
+                        PromptErrorMessage(errorMessage, viewController: self)
                 }
 
             case "SoftReboot":
@@ -274,16 +324,22 @@ class ActionsViewController: BaseViewController {
                     print (json)
                     self.instance?.status = "ACTIVE"
                     self.changeInstanceStatus()
-                    
+                    self.postNotification("ACTIVE")
                     }.always{
                         self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
-                        print (err)
-                }
+                        var errorMessage:String!
+                        switch err {
+                        case NeCTAREngineError.CommonError(let msg):
+                            errorMessage = msg
+                        default:
+                            errorMessage = "Action failed."
+                        }
+                        PromptErrorMessage(errorMessage, viewController: self)                }
 
             case "Create Snapshot":
                 createSnapshot()
-                self.dismissViewControllerAnimated(false, completion: nil)
+                
             default:
                 NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "Delete", token: user.tokenID).then {
                     (json) -> Void in
@@ -291,8 +347,14 @@ class ActionsViewController: BaseViewController {
                     }.always{
                         self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
-                        print("error")
-                        print (err)
+                        var errorMessage:String!
+                        switch err {
+                        case NeCTAREngineError.CommonError(let msg):
+                            errorMessage = msg
+                        default:
+                            errorMessage = "Action failed."
+                        }
+                        PromptErrorMessage(errorMessage, viewController: self)
                 }
             }
             
@@ -316,7 +378,7 @@ class ActionsViewController: BaseViewController {
             if let user = UserService.sharedService.user{
                 NeCTAREngine.sharedEngine.createSnapshot((self.instance?.id)!, url:user.computeServiceURL , snapshotName: name!, token: user.tokenID).then{
                     (json) -> Void in
-                    
+                    self.dismissViewControllerAnimated(false, completion: nil)
                     }.error {
                         (err) -> Void in
                         var errorMessage:String!
@@ -380,6 +442,10 @@ class ActionsViewController: BaseViewController {
         UIView.animateWithDuration(0.3, animations:{ () -> Void in
             self.closeImageView.transform = CGAffineTransformRotate(self.closeImageView.transform, CGFloat(-M_PI_2*1.5))
         })
+    }
+    
+    func postNotification(status: String) {
+        NSNotificationCenter.defaultCenter().postNotificationName("StatusChanged", object: status)
     }
     
     /*

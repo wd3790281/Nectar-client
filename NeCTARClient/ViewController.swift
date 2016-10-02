@@ -26,10 +26,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // add background image to mainview
-        let imageView = UIImageView(image: UIImage(named: "background"))
-        imageView.frame = UIScreen.mainScreen().bounds
-        self.view.addSubview(imageView)
-        
+//        let imageView = UIImageView(image: UIImage(named: "background"))
+//        imageView.frame = UIScreen.mainScreen().bounds
+//        self.view.addSubview(imageView)
+//        
         // add left view controller, above background, under main view
         leftViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
 

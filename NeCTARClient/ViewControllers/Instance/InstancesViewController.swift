@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class InstancesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableview: UITableView!
     var refreshControl: UIRefreshControl!
-    
+    var hudParentView = UIView()
     func commonInit() {
         if let user = UserService.sharedService.user{
             let url = user.computeServiceURL
@@ -26,6 +27,7 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
                     self.tableview.reloadData()
                     print(json)
                     self.refreshControl.endRefreshing()
+                    MBProgressHUD.hideHUDForView(self.hudParentView, animated: true)
                 }
                 }.error{(err) -> Void in
                     var errorMessage:String!
@@ -44,11 +46,20 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hudParentView = self.view
+        MBProgressHUD.showHUDAddedTo(hudParentView, animated: true)
+        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(InstancesViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableview.addSubview(refreshControl)
         commonInit()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(statusChanged), name: "StatusChanged", object: nil)
+    }
+    
+    func statusChanged() {
+        self.tableview.reloadData()
     }
     
     func refresh(sender:AnyObject) {

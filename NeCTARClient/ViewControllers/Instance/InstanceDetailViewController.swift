@@ -30,10 +30,15 @@ class InstanceDetailViewController: BaseViewController {
         super.viewDidLoad()
         setContent()
         
-        
         panGesture.addTarget(self, action: #selector(pan(_:)))
         self.view.addGestureRecognizer(panGesture)
+        
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(statusChanged), name: "StatusChanged", object: nil)
 
+    }
+    func statusChanged() {
+        status.text = InstanceService.sharedService.instances[index!].status
+        self.instance?.status = InstanceService.sharedService.instances[index!].status
     }
     
     func setContent() {

@@ -8,12 +8,14 @@
 
 import UIKit
 import Charts
+import MBProgressHUD
 
 class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var panGesture: UIPanGestureRecognizer!
 
     @IBOutlet var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    var hudParentView = UIView()
     
     var titleOfOtherPages = ""
     let titles = ["Instances", "VCPUs", "RAM", "Security group"]
@@ -24,6 +26,9 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hudParentView = self.view
+        MBProgressHUD.showHUDAddedTo(hudParentView, animated: true)
+
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -58,8 +63,11 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                 self.data.append([usedSG, unUsedSG])
                 
 //                print(self.data)
+                
+                MBProgressHUD.hideHUDForView(self.hudParentView, animated: true)
                 self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
+                
                 
                 }.error{(err) -> Void in
                     var errorMessage:String!

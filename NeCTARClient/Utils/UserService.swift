@@ -10,9 +10,8 @@ import Foundation
 import SwiftyJSON
 
 
-func loginRequired(action:()->()) {
+func loginRequired() {
     if UserService.sharedService.isLoggedIn {
-        action()
         return
     }
     guard let rootViewController = (UIApplication.sharedApplication().delegate as! AppDelegate).window?.rootViewController else {return}
@@ -20,8 +19,12 @@ func loginRequired(action:()->()) {
     let navLoginVC = UINavigationController(rootViewController: loginVC)
     navLoginVC.setNavigationBarHidden(true, animated: false)
     loginVC.postLoginAction = { json in
+        
         UserService.sharedService.handleLoginResponse(json)
-        action()
+        
+        let entryPointOfMain = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        UIApplication.sharedApplication().keyWindow?.rootViewController = entryPointOfMain
+
         
     }
     rootViewController.presentViewController(navLoginVC, animated: true, completion: nil)

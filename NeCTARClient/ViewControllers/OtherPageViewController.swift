@@ -17,9 +17,9 @@ class OtherPageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         switch PageTitle {
-        case "Instances":
+        case "Instance":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("InstancesViewController") as! InstancesViewController
-        case "Volumes":
+        case "Volume":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("VolumesViewController") as! VolumesViewController
         case "Images":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController

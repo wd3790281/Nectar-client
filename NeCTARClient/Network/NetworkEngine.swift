@@ -232,6 +232,17 @@ extension NeCTAREngine {
     
 }
 
+// MARK: - Security Group
+
+extension NeCTAREngine {
+    func listSecurityGroups(serverID: String, url:String, token: String) -> Promise<JSON> {
+        let fullURL = url + "/servers/\(serverID)/os-security-groups"
+        let header = ["X-Auth-Token": token]
+        let para = ["server_id": serverID]
+        return doHttpRequest(.GET, fullURL, parameters: para, encoding: .JSON, headers: header)
+    }
+}
+
 // MARK: - volume attachment 
 
 extension NeCTAREngine{
@@ -367,11 +378,6 @@ extension NeCTAREngine {
         let header = ["X-Auth-Token": token]
         return doHttpRequest(.GET, url, parameters: nil, encoding: .URL, headers: header)
     }
-//    func listInstances(url:String, token: String) -> Promise<JSON> {
-//        let fullURL = url + "/servers/detail"
-//        let header = ["X-Auth-Token": token]
-//        return doHttpRequest(.GET, fullURL, parameters: nil, encoding: .URL, headers: header)
-//    }
 }
 
 

@@ -33,15 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print(json)}
         
         if !UserService.sharedService.isLoggedIn {
-            let loginVC = UIStoryboard(name: "LoginStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-            let navLoginVC = UINavigationController(rootViewController: loginVC)
-            navLoginVC.setNavigationBarHidden(true, animated: false)
-            loginVC.postLoginAction = { userJSON in
-                UserService.sharedService.handleLoginResponse(userJSON)
-                self.gotoMainVC()
-            }
-            self.window?.rootViewController = navLoginVC
-            
+            gotoLoginVC()
+        } else {
+            gotoMainVC()
         }
 
         return true
