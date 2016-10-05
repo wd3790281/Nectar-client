@@ -42,7 +42,7 @@ class LeftViewController: BaseViewController {
     }
     
     @IBAction func toVolume(sender: AnyObject) {
-        turnToOtherPage("Volume")
+        turnToOtherPage("About")
     }
     
     @IBAction func toImage(sender: AnyObject) {

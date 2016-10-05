@@ -19,8 +19,8 @@ class OtherPageViewController: BaseViewController {
         switch PageTitle {
         case "Instance":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("InstancesViewController") as! InstancesViewController
-        case "Volume":
-            otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("VolumesViewController") as! VolumesViewController
+        case "About":
+            otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
         case "Images":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
         case "Access & Security":

@@ -14,20 +14,32 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
     @IBOutlet var tableview: UITableView!
     var refreshControl: UIRefreshControl!
     var hudParentView = UIView()
+    
     func commonInit() {
         if let user = UserService.sharedService.user{
             let url = user.computeServiceURL
             let token = user.tokenID
             NeCTAREngine.sharedEngine.listInstances(url, token: token).then{ (json) -> Void in
                 let servers = json["servers"].arrayValue
-                InstanceService.sharedService.clear();
+                InstanceService.sharedService.clear()
+                var index = 0
                 for server in servers {
+                    
                     let instance = Instance(json: server)
                     InstanceService.sharedService.instances.append(instance!)
+                   
+                    NeCTAREngine.sharedEngine.queryImage(user.imageServiceURL, token: token, imageID: (instance?.imageId)!).then{(json2) -> Void in
+                        print(json2)
+                        let imageName = json2["nectar_name"].stringValue
+                        InstanceService.sharedService.instances[index].imageRel = imageName
+                        self.tableview.reloadData()
+                        index += 1
+                    }
                     self.tableview.reloadData()
                     print(json)
                     self.refreshControl.endRefreshing()
                     MBProgressHUD.hideHUDForView(self.hudParentView, animated: true)
+                    
                 }
                 }.error{(err) -> Void in
                     var errorMessage:String!

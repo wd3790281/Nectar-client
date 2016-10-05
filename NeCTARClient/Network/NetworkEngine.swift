@@ -132,9 +132,9 @@ extension NeCTAREngine {
     }
     
     func deleteInstance(serverId: String, url:String, token: String) -> Promise<JSON>{
-        let fullURL = url + "/servers"
+        let fullURL = url + "/servers/\(serverId)"
         let header = ["X-Auth-Token": token]
-        return doHttpRequest(.DELETE, fullURL, parameters: ["server_id": serverId], encoding: .URL, headers: header)
+        return doHttpRequest(.DELETE, fullURL, parameters: nil, encoding: .URL, headers: header)
     }
 }
 
@@ -207,6 +207,13 @@ extension NeCTAREngine {
         let header = ["X-Auth-Token": token]
         let para = ["reboot":["type":method]]
         return doHttpRequest(.POST, fullURL, parameters: para, encoding: .JSON, headers: header)
+    }
+    
+    func checkServerUsage(serverID: String, url: String, token: String) -> Promise<JSON> {
+        let fullURL = url + "/servers/\(serverID)/diagnostics"
+        let header = ["X-Auth-Token": token]
+        let para = ["server_id": serverID]
+        return doHttpRequest(.GET, fullURL, parameters: para, encoding: .JSON, headers: header)
     }
     
 }
@@ -377,6 +384,13 @@ extension NeCTAREngine {
         
         let header = ["X-Auth-Token": token]
         return doHttpRequest(.GET, url, parameters: nil, encoding: .URL, headers: header)
+    }
+    
+    func queryImage (url: String, token: String, imageID: String) -> Promise<JSON> {
+        let fullURL = url + "/v2/images/\(imageID)"
+        let header = ["X-Auth-Token": token]
+        return doHttpRequest(.GET, fullURL, parameters: nil, encoding: .URL, headers: header)
+
     }
 }
 

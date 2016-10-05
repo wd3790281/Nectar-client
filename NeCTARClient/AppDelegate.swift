@@ -17,28 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//        let para:[String: AnyObject] = ["auth": [
-//            "tenantName": "iOS_NeCTAR_Client",
-//            "passwordCredentials": [
-//                "username": "d.wang44@student.unimelb.edu.au",
-//                "password": "MTQ2ODUwYjAzMGFhN2Y3"
-//            ]]]
-//    
-//        
-//        NeCTAREngine.sharedEngine.doHttpRequest(.POST,
-//                                                "https://keystone.rc.nectar.org.au:5000/v2.0/tokens",
-//                                                parameters: para,
-//            encoding: .JSON).then{(json) -> Void in
-//                UserService.sharedService.user = User(json: json)
-//                print(json)}
-        
-        if !UserService.sharedService.isLoggedIn {
-            gotoLoginVC()
-        } else {
-            gotoMainVC()
-        }
+
+//      "MTQ2ODUwYjAzMGFhN2Y3"
+
+        determineFrontPage()
 
         return true
+    }
+    
+    func determineFrontPage () {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let guideSkiped = userDefaults.boolForKey("guide_skiped")
+        
+        if !guideSkiped {
+            let guideVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Guide") as! GuideViewController
+            let navGuideVC = UINavigationController(rootViewController: guideVC)
+            navGuideVC.setNavigationBarHidden(true, animated: false)
+            self.window?.rootViewController = navGuideVC
+            userDefaults.setBool(true, forKey: "guide_skiped")
+            userDefaults.synchronize()
+
+        } else {
+            gotoLoginVC()
+        }
     }
     
     func gotoMainVC() {
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window?.rootViewController = navLoginVC
     }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -22,7 +22,9 @@ class OverViewCell: UITableViewCell {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
-
+        let total = values[0] + values[1]
+        usagelabel.text = "Used \(values[0]) of \(total)"
+        
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: nil)
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         

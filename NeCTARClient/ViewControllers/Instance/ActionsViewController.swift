@@ -114,7 +114,7 @@ class ActionsViewController: BaseViewController {
             titles = ["Start", "HardRebbot", "SoftReboot", "Create Snapshot", "Delete"]
             
         default:
-            titles = ["Pause", "Suspend", "Stop", "HardRebbot", "SoftReboot", "Create Snapshot", "Delete"]
+            titles = ["Pause", "Suspend", "Stop", "HardRebbot", "SoftReboot", "Create Snapshot", "Delete", "Usage"]
         }
        
         
@@ -187,8 +187,9 @@ class ActionsViewController: BaseViewController {
                             self.instance?.status = "PAUSED"
                             self.changeInstanceStatus()
                         self.postNotification("PAUSED")
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -206,8 +207,9 @@ class ActionsViewController: BaseViewController {
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
                         self.postNotification("ACTIVE")
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -227,8 +229,9 @@ class ActionsViewController: BaseViewController {
                             self.instance?.status = "SUSPENDED"
                             self.changeInstanceStatus()
                         self.postNotification("SUSPENDED")
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -246,8 +249,9 @@ class ActionsViewController: BaseViewController {
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
                         self.postNotification("ACTIVE")
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -267,8 +271,9 @@ class ActionsViewController: BaseViewController {
                             self.instance?.status = "SHUTOFF"
                             self.changeInstanceStatus()
                         self.postNotification("SHUTOFF")
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -285,9 +290,10 @@ class ActionsViewController: BaseViewController {
                             print(json)
                             self.instance?.status = "ACTIVE"
                             self.changeInstanceStatus()
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         self.postNotification("ACTIVE")
                         }.always{
-                            self.dismissViewControllerAnimated(false, completion: nil)
+//                            self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
                             var errorMessage:String!
                             switch err {
@@ -306,10 +312,12 @@ class ActionsViewController: BaseViewController {
                     self.instance?.status = "ACTIVE"
                     self.changeInstanceStatus()
                     self.postNotification("ACTIVE")
+                    self.dismissViewControllerAnimated(false, completion: nil)
                     }.always{
-                        self.dismissViewControllerAnimated(false, completion: nil)
+//                        self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
                         var errorMessage:String!
+                        print(err)
                         switch err {
                         case NeCTAREngineError.CommonError(let msg):
                             errorMessage = msg
@@ -325,28 +333,37 @@ class ActionsViewController: BaseViewController {
                     self.instance?.status = "ACTIVE"
                     self.changeInstanceStatus()
                     self.postNotification("ACTIVE")
+                    self.dismissViewControllerAnimated(false, completion: nil)
                     }.always{
-                        self.dismissViewControllerAnimated(false, completion: nil)
+//                        self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
                         var errorMessage:String!
+                        print(err)
                         switch err {
                         case NeCTAREngineError.CommonError(let msg):
                             errorMessage = msg
                         default:
                             errorMessage = "Action failed."
                         }
-                        PromptErrorMessage(errorMessage, viewController: self)                }
+                        PromptErrorMessage(errorMessage, viewController: self)
+                }
 
             case "Create Snapshot":
                 createSnapshot()
+            
+            case "Usage":
+                NeCTAREngine.sharedEngine.checkServerUsage((self.instance?.id)!, url: user.computeServiceURL, token: user.tokenID).then{ (json) -> Void in
+                    print(json)
+                }
                 
             default:
                 NeCTAREngine.sharedEngine.instanceAction((self.instance?.id)!, url: user.computeServiceURL, action: "Delete", token: user.tokenID).then {
                     (json) -> Void in
                     print (json)
                     }.always{
-                        self.dismissViewControllerAnimated(false, completion: nil)
+//                        self.dismissViewControllerAnimated(false, completion: nil)
                     }.error{ (err) -> Void in
+                        print(err)
                         var errorMessage:String!
                         switch err {
                         case NeCTAREngineError.CommonError(let msg):
@@ -370,7 +387,10 @@ class ActionsViewController: BaseViewController {
             textField.placeholder = "Name for snapshot"
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.dismissViewControllerAnimated(false, completion: nil)
+        })
         let okAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
             (action: UIAlertAction!) -> Void in
             let nameField = (alertController.textFields?.first)! as UITextField

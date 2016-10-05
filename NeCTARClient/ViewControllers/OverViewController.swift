@@ -42,6 +42,7 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         if let user = UserService.sharedService.user{
             let url = user.computeServiceURL
             let token = user.tokenID
+            
             NeCTAREngine.sharedEngine.getLimit(url, token: token).then{ (json) -> Void in
                 
                 let absolute = json["limits"]["absolute"]
@@ -107,6 +108,7 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     func refresh(sender:AnyObject) {
         // Code to refresh table view
+        self.data = []
         commonInit()
     }
     
