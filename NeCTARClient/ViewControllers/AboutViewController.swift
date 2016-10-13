@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class AboutViewController: BaseViewController {
 
     @IBOutlet var unimelbLogo: UIImageView!
+    @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        self.scrollView.snp_makeConstraints{
+            (make) -> Void in
+            make.width.equalTo(Common.screenWidth)
+        }
     }
     
     @IBAction func goToNectarWeb(sender: AnyObject) {

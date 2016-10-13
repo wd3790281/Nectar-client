@@ -29,12 +29,23 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
                     InstanceService.sharedService.instances.append(instance!)
                    
                     NeCTAREngine.sharedEngine.queryImage(user.imageServiceURL, token: token, imageID: (instance?.imageId)!).then{(json2) -> Void in
-                        print(json2)
                         let imageName = json2["nectar_name"].stringValue
                         InstanceService.sharedService.instances[index].imageRel = imageName
-                        self.tableview.reloadData()
                         index += 1
+                        }.error{(err) -> Void in
+                            var errorMessage:String!
+                            switch err {
+                            case NeCTAREngineError.CommonError(let msg):
+                                errorMessage = msg
+                            case NeCTAREngineError.ErrorStatusCode(let code):
+                                if code == 401 {
+                                    loginRequired()
+                                }
+                            default:
+                                errorMessage = "Fail to get all the image detail"
+                            }
                     }
+
                     self.tableview.reloadData()
                     print(json)
                     self.refreshControl.endRefreshing()
@@ -46,6 +57,10 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
                     switch err {
                     case NeCTAREngineError.CommonError(let msg):
                         errorMessage = msg
+                    case NeCTAREngineError.ErrorStatusCode(let code):
+                        if code == 401 {
+                            loginRequired()
+                        }
                     default:
                         errorMessage = "Fail to get all instances."
                     }

@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import IBAnimatable
 
 class GuideViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet var start: UIButton!
+    
+    @IBOutlet var start: AnimatableButton!
     @IBOutlet var pageControl: UIPageControl!
     var scrollView: UIScrollView!
     
-    let numOfPages = 3
+    let numOfPages = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,7 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
         scrollView.bounces = false
         scrollView.contentOffset = CGPointZero
         // 将 scrollView 的 contentSize 设为屏幕宽度的3倍(根据实际情况改变)
-        scrollView.contentSize = CGSize(width: frame.size.width * CGFloat(numOfPages), height: frame.size.height)
+        scrollView.contentSize = CGSize(width: frame.size.width * CGFloat(numOfPages), height: frame.size.height - 20)
         
         
         scrollView.delegate = self
@@ -41,15 +43,13 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
         for index  in 0..<numOfPages {
             // 这里注意图片的命名
             let imageView = UIImageView(image: UIImage(named: "GuideImage\(index + 1)"))
-            imageView.frame = CGRect(x: frame.size.width * CGFloat(index), y: 0, width: frame.size.width, height: frame.size.height)
+            imageView.frame = CGRect(x: frame.size.width * CGFloat(index), y: 0, width: frame.size.width, height: frame.size.height - 20)
             scrollView.addSubview(imageView)
         }
         
        
         self.view.insertSubview(scrollView, atIndex: 0)
         
-        // 给开始按钮设置圆角
-        start.layer.cornerRadius = 15.0
         // 隐藏开始按钮
         start.alpha = 0.0
     }

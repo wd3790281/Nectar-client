@@ -32,13 +32,17 @@ class ImageTableViewController: UITableViewController {
             let url = user.imageServiceURL + "v2/images"
             let token = user.tokenID
             NeCTAREngine.sharedEngine.listImages(url, token: token).then{ (json) -> Void in
-                print(json)
+                
                 MBProgressHUD.hideHUDForView(self.hudParentView, animated: true)
                 }.error{(err) -> Void in
                     var errorMessage:String!
                     switch err {
                     case NeCTAREngineError.CommonError(let msg):
                         errorMessage = msg
+                    case NeCTAREngineError.ErrorStatusCode(let code):
+                        if code == 401 {
+                            loginRequired()
+                        }
                     default:
                         errorMessage = "Fail to get images"
                     }

@@ -31,7 +31,7 @@ struct Instance {
         for j in address {
             addresses.append(j["addr"].stringValue)
         }
-        createTime = json["created"].stringValue
+        createTime = json["created"].stringValue.stringByReplacingOccurrencesOfString("T", withString: " ").stringByReplacingOccurrencesOfString("Z", withString: "")
         flavorID = json["flavor"]["id"].stringValue
         flavorRel = json["flavor"]["links"][0]["href"].stringValue
         hostId = json["hostId"].stringValue

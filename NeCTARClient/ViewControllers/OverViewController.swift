@@ -75,6 +75,10 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                     switch err {
                     case NeCTAREngineError.CommonError(let msg):
                         errorMessage = msg
+                    case NeCTAREngineError.ErrorStatusCode(let code):
+                        if code == 401 {
+                            loginRequired()
+                        }
                     default:
                         errorMessage = "Fail to get overview information."
                     }
@@ -88,7 +92,6 @@ class OverViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                 FlavorService.sharedService.clear();
                 for flavor in flavors {
                     let fla = Flavor(json: flavor)
-//                    print(fla?.name)
                     FlavorService.sharedService.falvors.append(fla!)
                     
                 }

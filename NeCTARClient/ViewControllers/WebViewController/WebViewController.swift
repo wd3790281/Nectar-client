@@ -35,6 +35,14 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(closeButtonOnTouch))
         self.navigationItem.leftBarButtonItem = closeButton
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let req = NSURLRequest(URL: self.requestURL, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 10)
+        self.webView.loadRequest(req)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

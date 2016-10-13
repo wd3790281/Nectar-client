@@ -109,11 +109,11 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         self.login.userInteractionEnabled = false
         NeCTAREngine.sharedEngine.login(tenantName, username: username, password: password).then{
             (json) -> Void in
-//            UserService.sharedService.user = User(json: json)
+
             self.postLoginAction?(json)
 //            print(json)
-//            print(UserService.sharedService.user?.computeServiceURL)
-//            print(UserService.sharedService.user?.username)
+            print(UserService.sharedService.user?.computeServiceURL)
+            print(UserService.sharedService.user?.tokenID)
             
             }.always{
                 self.indicator.stopAnimating()

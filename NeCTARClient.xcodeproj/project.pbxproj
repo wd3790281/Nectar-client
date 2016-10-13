@@ -253,6 +253,15 @@
 			path = Instance;
 			sourceTree = "<group>";
 		};
+		2799F9841DAE7646007AC54F /* OverViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				276BE62D1D608BF9003EA74C /* OverViewController.swift */,
+				2709AEDF1D656D40004FEB3D /* OverViewCell.swift */,
+			);
+			name = OverViewControllers;
+			sourceTree = "<group>";
+		};
 		27AAFD4D1D5DB22A007E3054 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,13 +285,12 @@
 				275FA0AD1D6A781E00898557 /* Instance */,
 				27AAFD4D1D5DB22A007E3054 /* Login */,
 				274FF94E1D5CA9D100D588EC /* Common */,
-				276BE62D1D608BF9003EA74C /* OverViewController.swift */,
+				2799F9841DAE7646007AC54F /* OverViewControllers */,
 				276BE62F1D609FAE003EA74C /* LeftViewController.swift */,
 				276BE6421D62CA48003EA74C /* OtherPageViewController.swift */,
 				276BE6441D63438A003EA74C /* ImageViewController.swift */,
 				276BE6481D6343C4003EA74C /* AboutViewController.swift */,
 				276BE64A1D6343D7003EA74C /* SecurityViewController.swift */,
-				2709AEDF1D656D40004FEB3D /* OverViewCell.swift */,
 				2743433C1DA0C580006B520F /* ImageTableViewController.swift */,
 				27B5514E1DA372480083E8D4 /* GuideViewController.swift */,
 			);

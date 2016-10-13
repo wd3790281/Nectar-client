@@ -26,6 +26,33 @@ class InstanceDetailViewController: BaseViewController {
     var actionViewController: ActionsViewController!
     var centerOfBeginning: CGPoint!
     
+    func commonInit() {
+        if let user = UserService.sharedService.user{
+            let url = user.computeServiceURL
+            let token = user.tokenID
+            NeCTAREngine.sharedEngine.queryImage(user.imageServiceURL, token: token, imageID: (instance?.imageId)!).then{(json) -> Void in
+                    let image = json["nectar_name"].stringValue
+                    self.imageName.text = image
+                    InstanceService.sharedService.instances[self.index!].imageRel = image
+                    }.error{(err) -> Void in
+                        var errorMessage:String!
+                        switch err {
+                        case NeCTAREngineError.CommonError(let msg):
+                            errorMessage = msg
+                        case NeCTAREngineError.ErrorStatusCode(let code):
+                            if code == 401 {
+                                loginRequired()
+                            }
+                        default:
+                            errorMessage = "Fail to get all the instance image detail"
+                        }
+                        PromptErrorMessage(errorMessage, viewController: self)
+                }
+        }
+    }
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setContent()
@@ -33,12 +60,17 @@ class InstanceDetailViewController: BaseViewController {
         panGesture.addTarget(self, action: #selector(pan(_:)))
         self.view.addGestureRecognizer(panGesture)
         
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(statusChanged), name: "StatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(statusChanged), name: "StatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(returnToRootView), name: "InstanceDeleted", object: nil)
 
     }
     func statusChanged() {
         status.text = InstanceService.sharedService.instances[index!].status
         self.instance?.status = InstanceService.sharedService.instances[index!].status
+    }
+    
+    func returnToRootView() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func setContent() {
@@ -66,15 +98,7 @@ class InstanceDetailViewController: BaseViewController {
         actionViewController.backImage = image
         actionViewController.instance = self.instance
         actionViewController.instanceIndex = self.index
-        print("image")
-        print(image.size.height)
-        print(image.size.width)
-        print("self view")
-        print(self.view.frame.height)
         
         self.presentViewController(actionViewController, animated: false, completion: nil)
-//        UIView.animateWithDuration(1, animations:{ () -> Void in
-//                    self.actionViewController.view.center = CGPointMake(self.centerOfBeginning.x, self.centerOfBeginning.y - Common.screenHeight)
-//            }, completion: nil)
     }
 }
