@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="kHE-Gb-tWP" id="ICD-q8-C4i">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="107.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVE-3N-q5q">
@@ -315,7 +315,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1YS-af-CLl" id="QLk-Ji-uke">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="179.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7f-ff-RKx" customClass="PieChartView" customModule="Charts">
@@ -406,7 +406,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="269"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VuY-oQ-JXb" id="8bK-My-cfT">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="269"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="268.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HM-MS-RpU">
@@ -660,7 +660,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="A507232F-3924-44DE-8832-7236E49BF6A0" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-pX-NGq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0C87FDAD-5D55-4151-A304-A92F44D98455" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-pX-NGq">
                                 <rect key="frame" x="57" y="119" width="260" height="360"/>
                             </imageView>
                         </subviews>
@@ -670,7 +670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lR-lP-6X3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3248.5" y="1002.5"/>
+            <point key="canvasLocation" x="3090.5" y="956.5"/>
         </scene>
         <!--Instance Detail View Controller-->
         <scene sceneID="91K-qR-zXz">
@@ -1162,7 +1162,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A507232F-3924-44DE-8832-7236E49BF6A0" width="518" height="720">
+        <image name="0C87FDAD-5D55-4151-A304-A92F44D98455" width="518" height="720">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

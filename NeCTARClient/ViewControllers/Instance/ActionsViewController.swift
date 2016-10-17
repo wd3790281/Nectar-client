@@ -257,7 +257,7 @@ class ActionsViewController: BaseViewController {
                         self.postNotification("StatusChanged",obj: "ACTIVE")
                         self.dismissViewControllerAnimated(false, completion: nil)
                         }.error { (err) -> Void in
-                            var errorMessage:String!
+                            var errorMessage:String! = "Action failed"
                             switch err {
                             case NeCTAREngineError.CommonError(let msg):
                                 errorMessage = msg

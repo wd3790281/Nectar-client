@@ -19,6 +19,8 @@ class LeftViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // add constrains to make the menu weigth is appriate for the screen
         self.contentView.snp_makeConstraints{ (make) -> Void in
             make.width.equalTo(Common.screenWidth * 0.8)
         }
