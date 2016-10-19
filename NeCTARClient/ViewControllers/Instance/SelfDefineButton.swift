@@ -18,7 +18,7 @@ class SelfDefineButton: UIButton {
     }
     */
     
-    
+    // redesign the layout of the button, make title below image
     override func layoutSubviews() {
         super.layoutSubviews()
         let imageX: CGFloat = 0;

@@ -21,6 +21,8 @@ class OtherPageViewController: BaseViewController {
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("InstancesViewController") as! InstancesViewController
         case "About":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
+            
+        // the following two buttons are hidden, they are not used in this version
         case "Images":
             otherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
         case "Access & Security":

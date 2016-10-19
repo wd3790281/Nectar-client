@@ -15,6 +15,8 @@ class InstancesViewController: BaseViewController, UITableViewDelegate, UITableV
     var refreshControl: UIRefreshControl!
     var hudParentView = UIView()
     
+    
+    // load data
     func commonInit() {
         if let user = UserService.sharedService.user{
             let url = user.computeServiceURL

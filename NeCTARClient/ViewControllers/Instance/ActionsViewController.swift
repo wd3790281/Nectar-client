@@ -99,6 +99,7 @@ class ActionsViewController: BaseViewController {
         
         var titles: [String] = []
         
+        // change the enabled button according to different instance status
         switch (instance?.status)! {
             
         case "SUSPENDED":
@@ -115,7 +116,6 @@ class ActionsViewController: BaseViewController {
         }
        
         
-        
         var originY:CGFloat = 300
         
         switch UIScreen.mainScreen().applicationFrame.height {
@@ -129,6 +129,8 @@ class ActionsViewController: BaseViewController {
             originY = 300
         }
         
+        
+        // computing the postion of each button and add them to view
         for i in 0 ..< titles.count {
             
             let btn =  SelfDefineButton()
@@ -166,6 +168,7 @@ class ActionsViewController: BaseViewController {
         
     }
     
+    // when the button touched, do differernt action and change status
     func btnOnTouch (btn: UIButton) {
         UIView.animateWithDuration(0.5, animations:{ () -> Void in
             btn.transform = CGAffineTransformMakeScale(2.0, 2.0)
@@ -417,6 +420,7 @@ class ActionsViewController: BaseViewController {
         }
     }
     
+    // create snapshot of a instance
     func createSnapshot () {
         
         let alertController = UIAlertController(title: "Create image snapshot", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
@@ -460,10 +464,12 @@ class ActionsViewController: BaseViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    // make the instance status changed
     func changeInstanceStatus() {
         InstanceService.sharedService.instances[instanceIndex!].status = self.instance!.status
     }
     
+    // the close image of the pop out menu
     func setCloseImage () {
         
         let img = UIImage(named: "cross")
@@ -476,7 +482,8 @@ class ActionsViewController: BaseViewController {
         
     }
 
-    func returnUpVC() {
+    // for dismiss button
+    func dismissButton() {
         if (downIndex == -1) {
             self.timer.invalidate()
             
@@ -497,8 +504,9 @@ class ActionsViewController: BaseViewController {
         })
     }
     
+    
     func touch(gesture: UIGestureRecognizer) {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector:#selector(returnUpVC), userInfo:nil, repeats:true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector:#selector(dismissButton), userInfo:nil, repeats:true)
         
         UIView.animateWithDuration(0.3, animations:{ () -> Void in
             self.closeImageView.transform = CGAffineTransformRotate(self.closeImageView.transform, CGFloat(-M_PI_2*1.5))

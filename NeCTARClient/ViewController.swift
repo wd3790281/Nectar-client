@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // left slide in menu architecture is build in this viwcontroller
+    // this is the core logic part
 
     var homeViewController: OverViewController!
     var leftViewController: LeftViewController!
@@ -25,11 +28,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add background image to mainview
-//        let imageView = UIImageView(image: UIImage(named: "background"))
-//        imageView.frame = UIScreen.mainScreen().bounds
-//        self.view.addSubview(imageView)
-//        
         // add left view controller, above background, under main view
         leftViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
 
@@ -49,7 +47,7 @@ class ViewController: UIViewController {
         self.view.addSubview(mainView)
         homeNavigationController.didMoveToParentViewController(self)
         
-        // 绑定 UIPanGestureRecognizer
+        // add UIPanGestureRecognizer
         let panGesture = homeViewController.panGesture
         panGesture.addTarget(self, action: #selector(ViewController.pan(_:)))
         mainView.addGestureRecognizer(panGesture)

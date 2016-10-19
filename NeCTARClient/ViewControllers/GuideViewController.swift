@@ -34,14 +34,14 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
         scrollView.scrollsToTop = false
         scrollView.bounces = false
         scrollView.contentOffset = CGPointZero
-        // 将 scrollView 的 contentSize 设为屏幕宽度的3倍(根据实际情况改变)
+        // set the scrollview size to fit the number of pages
         scrollView.contentSize = CGSize(width: frame.size.width * CGFloat(numOfPages), height: frame.size.height - 20)
         
         
         scrollView.delegate = self
         
         for index  in 0..<numOfPages {
-            // 这里注意图片的命名
+            
             let imageView = UIImageView(image: UIImage(named: "GuideImage\(index + 1)"))
             imageView.frame = CGRect(x: frame.size.width * CGFloat(index), y: 0, width: frame.size.width, height: frame.size.height - 20)
             scrollView.addSubview(imageView)
@@ -50,7 +50,7 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
        
         self.view.insertSubview(scrollView, atIndex: 0)
         
-        // 隐藏开始按钮
+        // hide the start button at the beginning
         start.alpha = 0.0
     }
 
@@ -65,10 +65,10 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
-        // 随着滑动改变pageControl的状态
+        // change the pageControl status
         pageControl.currentPage = Int(offset.x / view.bounds.width)
         
-        // 因为currentPage是从0开始，所以numOfPages减1
+        // if sides to the last page, make start button visible
         if pageControl.currentPage == numOfPages - 1 {
             UIView.animateWithDuration(0.5) {
                 self.start.alpha = 1.0

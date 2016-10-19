@@ -12,6 +12,7 @@ import MBProgressHUD
 
 class ImageTableViewController: UITableViewController {
 
+    // this view controller is  not used in this version
     var hudParentView = UIView()
     
     override func viewDidLoad() {

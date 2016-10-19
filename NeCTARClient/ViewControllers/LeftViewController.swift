@@ -43,14 +43,14 @@ class LeftViewController: BaseViewController {
         turnToOtherPage("Instance")
     }
     
-    @IBAction func toVolume(sender: AnyObject) {
+    @IBAction func toAbout(sender: AnyObject) {
         turnToOtherPage("About")
     }
-    
+    // button hidden and disabled
     @IBAction func toImage(sender: AnyObject) {
         turnToOtherPage("Images")
     }
-    
+    // buton hidden and disabled
     @IBAction func toSecurity(sender: AnyObject) {
         turnToOtherPage("Access & Security")
     }

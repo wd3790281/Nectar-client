@@ -20,17 +20,18 @@ class AboutViewController: BaseViewController {
             (make) -> Void in
             make.width.equalTo(Common.screenWidth)
         }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToUnimelbWeb))
+        self.unimelbLogo.addGestureRecognizer(tapGesture)
+        unimelbLogo.userInteractionEnabled = true
+
     }
-    
+    // direct to nectar official website if nectar clicked
     @IBAction func goToNectarWeb(sender: AnyObject) {
         let url = NSURL(string: "https://nectar.org.au")!
         let webVC = WebViewController(request: url)
         self.navigationController?.pushViewController(webVC, animated: true)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToUnimelbWeb))
-        self.unimelbLogo.addGestureRecognizer(tapGesture)
-        unimelbLogo.userInteractionEnabled = true
-    }
-
+            }
+    // go to unimelb official website
     func goToUnimelbWeb(gesture: UIGestureRecognizer) {
         let url = NSURL(string: "http://www.unimelb.edu.au/")!
         let webVC = WebViewController(request: url)

@@ -26,6 +26,7 @@ class InstanceDetailViewController: BaseViewController {
     var actionViewController: ActionsViewController!
     var centerOfBeginning: CGPoint!
     
+    // load data
     func commonInit() {
         if let user = UserService.sharedService.user{
             let url = user.computeServiceURL
