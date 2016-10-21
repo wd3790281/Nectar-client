@@ -103,7 +103,7 @@
                                             <color key="titleColor" red="0.92156862750000001" green="0.2901960784" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="toVolume:" destination="e3Q-u6-pJ3" eventType="touchUpInside" id="VcV-Oc-epi"/>
+                                            <action selector="toAbout:" destination="e3Q-u6-pJ3" eventType="touchUpInside" id="NdK-XI-pYc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyc-ky-0HB">
@@ -660,7 +660,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3230E8BD-A4A5-4483-9CC6-CD1AD03AAC77" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-pX-NGq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="A36A12B7-BB9E-4A58-A4E2-4456DA983736" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-pX-NGq">
                                 <rect key="frame" x="57" y="119" width="260" height="360"/>
                             </imageView>
                         </subviews>
@@ -1162,7 +1162,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3230E8BD-A4A5-4483-9CC6-CD1AD03AAC77" width="518" height="720">
+        <image name="A36A12B7-BB9E-4A58-A4E2-4456DA983736" width="518" height="720">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
